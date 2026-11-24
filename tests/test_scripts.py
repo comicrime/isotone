@@ -57,6 +57,7 @@ class BuildBundleTest(unittest.TestCase):
             with zipfile.ZipFile(archive) as bundle:
                 names = bundle.namelist()
         self.assertIn("isotone.desktop", names)
+        self.assertIn("isotone/", names)
         self.assertIn("isotone/__init__.py", names)
         self.assertIn("isotone/docker.py", names)
         self.assertIn("isotone/Manual.html", names)

@@ -28,14 +28,15 @@ def check_plugin_layout(root):
 def bundle_entries(root):
     desktop = root / f"{PLUGIN_NAME}.desktop"
     yield desktop, desktop.name
+    yield root / PLUGIN_NAME, f"{PLUGIN_NAME}/"
     yield root / LICENSE_NAME, f"{PLUGIN_NAME}/{LICENSE_NAME}"
     for path in sorted((root / PLUGIN_NAME).rglob("*")):
         relative = path.relative_to(root)
-        if path.is_dir() or path.suffix in EXCLUDED_SUFFIXES:
+        if path.suffix in EXCLUDED_SUFFIXES:
             continue
         if EXCLUDED_DIRECTORIES.intersection(relative.parts):
             continue
-        yield path, relative.as_posix()
+        yield path, relative.as_posix() + ("/" if path.is_dir() else "")
 
 
 def build_bundle(root, version, output_directory):
