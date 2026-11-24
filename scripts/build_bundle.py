@@ -7,6 +7,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PLUGIN_NAME = "isotone"
 DESKTOP_SECTION = "Desktop Entry"
+LICENSE_NAME = "LICENSE"
 EXCLUDED_DIRECTORIES = {"__pycache__"}
 EXCLUDED_SUFFIXES = {".pyc", ".pyo"}
 
@@ -27,6 +28,7 @@ def check_plugin_layout(root):
 def bundle_entries(root):
     desktop = root / f"{PLUGIN_NAME}.desktop"
     yield desktop, desktop.name
+    yield root / LICENSE_NAME, f"{PLUGIN_NAME}/{LICENSE_NAME}"
     for path in sorted((root / PLUGIN_NAME).rglob("*")):
         relative = path.relative_to(root)
         if path.is_dir() or path.suffix in EXCLUDED_SUFFIXES:

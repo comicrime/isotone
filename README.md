@@ -2,6 +2,8 @@
 
 A color picker for Krita where the hue always remains the same!
 
+![Isotone docker in Krita](docs/screenshot-docker.png)
+
 requires krita 5.3+ in the 5.x line
 
 ## Install
@@ -39,3 +41,7 @@ Checks, the same as CI runs:
 
 !!! restart krita after changing the code. python erorrs appear in a popup on startup
 and in Help > Show Krita log for bug reports.
+
+## License
+
+[MIT](LICENSE)

@@ -60,6 +60,7 @@ class BuildBundleTest(unittest.TestCase):
         self.assertIn("isotone/__init__.py", names)
         self.assertIn("isotone/docker.py", names)
         self.assertIn("isotone/Manual.html", names)
+        self.assertIn("isotone/LICENSE", names)
         self.assertFalse([name for name in names if "__pycache__" in name or name.endswith(".pyc")])
         self.assertFalse([name for name in names if name.startswith(("tests/", "scripts/"))])
 
