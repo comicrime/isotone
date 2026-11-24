@@ -1,6 +1,6 @@
 # Isotone
 
-A color picker for Krita where the hue always remains the same!
+A color picker for Krita where changing hue never changes tone!
 
 ![Isotone docker in Krita](docs/screenshot-docker.png)
 
